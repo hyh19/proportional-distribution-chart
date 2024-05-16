@@ -1,11 +1,11 @@
 import '../../../core/app_export.dart';
 
-class ProportionalDistributionChartItemModel {
+class ItemModel {
   Rx<String> color;
   Rx<String> description;
   Rx<String> value;
 
-  ProportionalDistributionChartItemModel({
+  ItemModel({
     required this.color,
     required this.description,
     required this.value,
