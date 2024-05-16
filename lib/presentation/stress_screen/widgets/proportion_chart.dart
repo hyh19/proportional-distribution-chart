@@ -12,9 +12,6 @@ class ProportionChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.maxFinite,
-      height: 300.v,
-      padding: EdgeInsets.symmetric(horizontal: 20.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
