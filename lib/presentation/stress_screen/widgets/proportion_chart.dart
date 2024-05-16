@@ -4,10 +4,10 @@ import 'package:proportional_distribution_chart/core/app_export.dart';
 import 'chart_widget_model.dart';
 
 // ignore_for_file: must_be_immutable
-class ChartWidget extends StatelessWidget {
-  final ChartModel chartModel;
+class ProportionChart extends StatelessWidget {
+  final ProportionChartData chartModel;
 
-  ChartWidget({required this.chartModel});
+  ProportionChart({required this.chartModel});
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +42,7 @@ class ChartWidget extends StatelessWidget {
       child: Row(
         children: chartModel.items.map((item) {
           return _buildColorItem(
-              flex: item.percentage.toInt(),
-              color: Color(int.parse(item.color)));
+              flex: item.percentage.toInt(), color: item.color);
         }).toList(),
       ),
     );
@@ -106,7 +105,7 @@ class ChartWidget extends StatelessWidget {
                   bottom: 5.v,
                 ),
                 decoration: BoxDecoration(
-                  color: Color(int.parse(item.color)),
+                  color: item.color,
                   borderRadius: BorderRadius.circular(
                     3.h,
                   ),

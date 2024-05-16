@@ -1,15 +1,17 @@
-class ChartModel {
+import 'dart:ui';
+
+class ProportionChartData {
   String title;
   List<Item> items;
 
-  ChartModel({
+  ProportionChartData({
     required this.title,
     required this.items,
   });
 }
 
 class Item {
-  String color;
+  Color color;
   String description;
   String value;
   double percentage;
