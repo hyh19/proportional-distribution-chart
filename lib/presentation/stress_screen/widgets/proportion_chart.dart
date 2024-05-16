@@ -5,9 +5,9 @@ import 'proportion_chart_data.dart';
 
 // ignore_for_file: must_be_immutable
 class ProportionChart extends StatelessWidget {
-  final ProportionChartData chartModel;
+  final ProportionChartData data;
 
-  ProportionChart({required this.chartModel});
+  ProportionChart({required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ProportionChart extends StatelessWidget {
 
   Text _buildTitle() {
     return Text(
-      chartModel.title,
+      data.title,
       style: TextStyle(
         color: Color(0xFF1C1C26),
         fontSize: 14,
@@ -44,7 +44,7 @@ class ProportionChart extends StatelessWidget {
     return Container(
       height: 56.v,
       child: Row(
-        children: chartModel.items.map((item) {
+        children: data.items.map((item) {
           return _buildColorItem(
               flex: item.percentage.toInt(), color: item.color);
         }).toList(),
@@ -73,7 +73,7 @@ class ProportionChart extends StatelessWidget {
 
   Widget _buildDetails() {
     return SizedBox(
-      height: 45.v,
+      height: 42.v,
       child: ListView.separated(
         padding: EdgeInsets.only(right: 108.h),
         scrollDirection: Axis.horizontal,
@@ -86,7 +86,7 @@ class ProportionChart extends StatelessWidget {
         itemBuilder: (context, index) {
           return SizedBox(
             width: 50.h,
-            child: _buildDetailItem(chartModel.items[index]),
+            child: _buildDetailItem(data.items[index]),
           );
         },
       ),

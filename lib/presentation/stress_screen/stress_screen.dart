@@ -19,7 +19,7 @@ class StressScreen extends GetWidget<StressController> {
           body: Container(
             height: 300.v,
             child: ProportionChart(
-              chartModel: ProportionChartData(
+              data: ProportionChartData(
                 title: "压力阶段总计",
                 items: [
                   ProportionChartItem(
