@@ -11,18 +11,16 @@ class ProportionChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildTitle(),
-          SizedBox(height: 13.v),
-          _buildColors(),
-          SizedBox(height: 12.v),
-          _buildDetails()
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _buildTitle(),
+        SizedBox(height: 13.v),
+        _buildColors(),
+        SizedBox(height: 12.v),
+        _buildDetails()
+      ],
     );
   }
 
@@ -41,7 +39,7 @@ class ProportionChart extends StatelessWidget {
   }
 
   Widget _buildColors() {
-    return Container(
+    return SizedBox(
       height: 56.v,
       child: Row(
         children: data.items.map((item) {
@@ -74,63 +72,62 @@ class ProportionChart extends StatelessWidget {
   Widget _buildDetails() {
     return SizedBox(
       height: 42.v,
-      child: ListView.separated(
-        padding: EdgeInsets.only(right: 108.h),
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) {
-          return SizedBox(
-            width: 30.h,
-          );
-        },
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return SizedBox(
-            width: 50.h,
-            child: _buildDetailItem(data.items[index]),
-          );
-        },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: data.items.map((item) {
+          return Expanded(flex: 1, child: _buildDetailItem(item));
+        }).toList(),
       ),
     );
   }
 
-  SizedBox _buildDetailItem(ProportionChartItem item) {
-    return SizedBox(
-      width: 38.h,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                height: 6.adaptSize,
-                width: 6.adaptSize,
-                margin: EdgeInsets.only(
-                  top: 4.v,
-                  bottom: 5.v,
-                ),
-                decoration: BoxDecoration(
-                  color: item.color,
-                  borderRadius: BorderRadius.circular(
-                    3.h,
-                  ),
+  Widget _buildDetailItem(ProportionChartItem item) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 6.adaptSize,
+              width: 6.adaptSize,
+              margin: EdgeInsets.only(
+                top: 4.v,
+                bottom: 5.v,
+              ),
+              decoration: BoxDecoration(
+                color: item.color,
+                borderRadius: BorderRadius.circular(
+                  3.h,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 8.h),
-                child: Text(
-                  item.description,
-                  style: theme.textTheme.bodySmall,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 8.h),
+              child: Text(
+                item.description,
+                style: TextStyle(
+                  color: Color(0xFF1C1C26).withOpacity(0.4),
+                  fontSize: 12,
+                  fontFamily: 'MiSans VF',
+                  fontWeight: FontWeight.w300,
+                  height: 0,
                 ),
-              )
-            ],
+              ),
+            )
+          ],
+        ),
+        SizedBox(height: 4.v),
+        Text(
+          item.value,
+          style: TextStyle(
+            color: Color(0xFF1C1C26),
+            fontSize: 14,
+            fontFamily: 'MiSans VF',
+            fontWeight: FontWeight.w400,
+            height: 0,
           ),
-          SizedBox(height: 4.v),
-          Text(
-            item.value,
-            style: theme.textTheme.bodyMedium,
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

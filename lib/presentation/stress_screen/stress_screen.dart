@@ -30,13 +30,13 @@ class StressScreen extends GetWidget<StressController> {
                   ),
                   ProportionChartItem(
                     percentage: 20,
-                    color: Color(0x80F8A091),
+                    color: Color(0xFFF8A091).withOpacity(0.5),
                     description: "偏高",
                     value: "20%",
                   ),
                   ProportionChartItem(
                     percentage: 30,
-                    color: Color(0x804AC3E3),
+                    color: Color(0xFF4AC3E3).withOpacity(0.5),
                     description: "正常",
                     value: "30%",
                   ),
