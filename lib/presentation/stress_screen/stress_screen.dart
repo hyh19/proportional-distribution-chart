@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/app_export.dart';
 import 'controller/stress_controller.dart';
 import 'models/userprofilesection_item_model.dart';
@@ -93,7 +94,7 @@ class StressScreen extends GetWidget<StressController> {
   /// Section Widget
   Widget _buildUserProfileSection() {
     return SizedBox(
-      height: 39.v,
+      height: 45.v,
       child: Obx(
         () => ListView.separated(
           padding: EdgeInsets.only(right: 108.h),
@@ -108,8 +109,9 @@ class StressScreen extends GetWidget<StressController> {
           itemBuilder: (context, index) {
             UserprofilesectionItemModel model = controller
                 .stressModelObj.value.userprofilesectionItemList.value[index];
-            return UserprofilesectionItemWidget(
-              model,
+            return SizedBox(
+              width: 50.h,
+              child: UserprofilesectionItemWidget(model),
             );
           },
         ),
