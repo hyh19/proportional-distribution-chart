@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../core/app_export.dart';
-import 'widgets/userprofilesection_item_widget.dart';
+import 'controller/stress_controller.dart';
+import 'models/userprofilesection_item_model.dart';
+import 'widgets/userprofilesection_item_widget.dart'; // ignore_for_file: must_be_immutable
 
-class StressScreen extends StatelessWidget {
+class StressScreen extends GetWidget<StressController> {
   const StressScreen({Key? key})
       : super(
           key: key,
@@ -21,13 +23,13 @@ class StressScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "压力阶段总计",
+                "lbl".tr,
                 style: theme.textTheme.titleSmall,
               ),
               SizedBox(height: 13.v),
-              _buildRowViewSection(context),
+              _buildRowViewSection(),
               SizedBox(height: 12.v),
-              _buildUserProfileSection(context)
+              _buildUserProfileSection()
             ],
           ),
         ),
@@ -36,7 +38,7 @@ class StressScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildRowViewSection(BuildContext context) {
+  Widget _buildRowViewSection() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -89,21 +91,28 @@ class StressScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildUserProfileSection(BuildContext context) {
+  Widget _buildUserProfileSection() {
     return SizedBox(
       height: 39.v,
-      child: ListView.separated(
-        padding: EdgeInsets.only(right: 108.h),
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (context, index) {
-          return SizedBox(
-            width: 30.h,
-          );
-        },
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return UserprofilesectionItemWidget();
-        },
+      child: Obx(
+        () => ListView.separated(
+          padding: EdgeInsets.only(right: 108.h),
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              width: 30.h,
+            );
+          },
+          itemCount: controller
+              .stressModelObj.value.userprofilesectionItemList.value.length,
+          itemBuilder: (context, index) {
+            UserprofilesectionItemModel model = controller
+                .stressModelObj.value.userprofilesectionItemList.value[index];
+            return UserprofilesectionItemWidget(
+              model,
+            );
+          },
+        ),
       ),
     );
   }

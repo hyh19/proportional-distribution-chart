@@ -10,8 +10,10 @@ dependencies:
     sdk: flutter
   cached_network_image: ^3.3.0
   flutter_svg: ^2.0.9
-  intl: ^0.18.0
+  get: ^4.6.6
+  shared_preferences: ^2.2.2
   connectivity_plus: ^5.0.2
+  intl: ^0.18.0
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

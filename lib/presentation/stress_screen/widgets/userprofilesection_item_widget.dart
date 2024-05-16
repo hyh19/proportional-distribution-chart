@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import '../../../core/app_export.dart'; // ignore: must_be_immutable
+import '../../../core/app_export.dart';
+import '../controller/stress_controller.dart';
+import '../models/userprofilesection_item_model.dart'; // ignore: must_be_immutable
+// ignore_for_file: must_be_immutable
 
+// ignore_for_file: must_be_immutable
 class UserprofilesectionItemWidget extends StatelessWidget {
-  const UserprofilesectionItemWidget({Key? key})
+  UserprofilesectionItemWidget(this.userprofilesectionItemModelObj, {Key? key})
       : super(
           key: key,
         );
+
+  UserprofilesectionItemModel userprofilesectionItemModelObj;
+
+  var controller = Get.find<StressController>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +42,22 @@ class UserprofilesectionItemWidget extends StatelessWidget {
                 opacity: 0.4,
                 child: Padding(
                   padding: EdgeInsets.only(left: 8.h),
-                  child: Text(
-                    "过载",
-                    style: theme.textTheme.bodySmall,
+                  child: Obx(
+                    () => Text(
+                      userprofilesectionItemModelObj.textValue!.value,
+                      style: theme.textTheme.bodySmall,
+                    ),
                   ),
                 ),
               )
             ],
           ),
           SizedBox(height: 4.v),
-          Text(
-            "5%".toUpperCase(),
-            style: theme.textTheme.bodyMedium,
+          Obx(
+            () => Text(
+              userprofilesectionItemModelObj.percentageValue!.value,
+              style: theme.textTheme.bodyMedium,
+            ),
           )
         ],
       ),
