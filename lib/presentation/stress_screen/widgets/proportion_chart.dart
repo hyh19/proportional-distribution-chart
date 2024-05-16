@@ -70,14 +70,11 @@ class ProportionChart extends StatelessWidget {
   }
 
   Widget _buildDetails() {
-    return SizedBox(
-      height: 42.v,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: data.items.map((item) {
-          return Expanded(flex: 1, child: _buildDetailItem(item));
-        }).toList(),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: data.items.map((item) {
+        return Expanded(flex: 1, child: _buildDetailItem(item));
+      }).toList(),
     );
   }
 
