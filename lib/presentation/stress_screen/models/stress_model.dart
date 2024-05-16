@@ -1,18 +1,19 @@
 import '../../../core/app_export.dart';
-import 'userprofilesection_item_model.dart';
+import 'proportional_distribution_chart_item_model.dart';
 
 /// This class defines the variables used in the [stress_screen],
 /// and is typically used to hold data that is passed between different parts of the application.
-// ignore_for_file: must_be_immutable
 
-// ignore_for_file: must_be_immutable
 class StressModel {
-  Rx<List<UserprofilesectionItemModel>> userprofilesectionItemList = Rx([
-    UserprofilesectionItemModel(textValue: "过载".obs, percentageValue: "5%".obs),
-    UserprofilesectionItemModel(
-        textValue: "偏高".obs, percentageValue: "15%".obs),
-    UserprofilesectionItemModel(
-        textValue: "正常".obs, percentageValue: "35%".obs),
-    UserprofilesectionItemModel(textValue: "优秀".obs, percentageValue: "65%".obs)
+  Rx<List<ProportionalDistributionChartItemModel>>
+      proportionalDistributionChartItemList = Rx([
+    ProportionalDistributionChartItemModel(
+        color: "0xFFF8A091".obs, description: "过载".obs, value: "5%".obs),
+    ProportionalDistributionChartItemModel(
+        color: "0x80F8A091".obs, description: "偏高".obs, value: "15%".obs),
+    ProportionalDistributionChartItemModel(
+        color: "0x804AC3E3".obs, description: "正常".obs, value: "35%".obs),
+    ProportionalDistributionChartItemModel(
+        color: "0xFF4AC3E3".obs, description: "优秀".obs, value: "65%".obs)
   ]);
 }

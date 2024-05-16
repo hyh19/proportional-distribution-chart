@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/app_export.dart';
 import 'controller/stress_controller.dart';
-import 'models/userprofilesection_item_model.dart';
+import 'models/proportional_distribution_chart_item_model.dart';
 import 'widgets/userprofilesection_item_widget.dart'; // ignore_for_file: must_be_immutable
 
 class StressScreen extends GetWidget<StressController> {
@@ -104,11 +104,14 @@ class StressScreen extends GetWidget<StressController> {
               width: 30.h,
             );
           },
-          itemCount: controller
-              .stressModelObj.value.userprofilesectionItemList.value.length,
+          itemCount: controller.stressModelObj.value
+              .proportionalDistributionChartItemList.value.length,
           itemBuilder: (context, index) {
-            UserprofilesectionItemModel model = controller
-                .stressModelObj.value.userprofilesectionItemList.value[index];
+            ProportionalDistributionChartItemModel model = controller
+                .stressModelObj
+                .value
+                .proportionalDistributionChartItemList
+                .value[index];
             return SizedBox(
               width: 50.h,
               child: UserprofilesectionItemWidget(model),

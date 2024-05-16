@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/app_export.dart';
 import '../controller/stress_controller.dart';
-import '../models/userprofilesection_item_model.dart'; // ignore: must_be_immutable
+import '../models/proportional_distribution_chart_item_model.dart'; // ignore: must_be_immutable
 // ignore_for_file: must_be_immutable
 
 // ignore_for_file: must_be_immutable
@@ -11,7 +12,7 @@ class UserprofilesectionItemWidget extends StatelessWidget {
           key: key,
         );
 
-  UserprofilesectionItemModel userprofilesectionItemModelObj;
+  ProportionalDistributionChartItemModel userprofilesectionItemModelObj;
 
   var controller = Get.find<StressController>();
 
@@ -32,7 +33,8 @@ class UserprofilesectionItemWidget extends StatelessWidget {
                   bottom: 5.v,
                 ),
                 decoration: BoxDecoration(
-                  color: appTheme.deepOrange200,
+                  color: Color(
+                      int.parse(userprofilesectionItemModelObj.color.value)),
                   borderRadius: BorderRadius.circular(
                     3.h,
                   ),
@@ -44,7 +46,7 @@ class UserprofilesectionItemWidget extends StatelessWidget {
                   padding: EdgeInsets.only(left: 8.h),
                   child: Obx(
                     () => Text(
-                      userprofilesectionItemModelObj.textValue!.value,
+                      userprofilesectionItemModelObj.description.value,
                       style: theme.textTheme.bodySmall,
                     ),
                   ),
@@ -55,7 +57,7 @@ class UserprofilesectionItemWidget extends StatelessWidget {
           SizedBox(height: 4.v),
           Obx(
             () => Text(
-              userprofilesectionItemModelObj.percentageValue!.value,
+              userprofilesectionItemModelObj.value.value,
               style: theme.textTheme.bodyMedium,
             ),
           )
