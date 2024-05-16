@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:proportional_distribution_chart/core/app_export.dart';
 
-import 'chart_widget_model.dart';
+import 'proportion_chart_data.dart';
 
 // ignore_for_file: must_be_immutable
 class ProportionChart extends StatelessWidget {
@@ -89,7 +89,7 @@ class ProportionChart extends StatelessWidget {
     );
   }
 
-  SizedBox _buildDetailItem(Item item) {
+  SizedBox _buildDetailItem(ProportionChartItem item) {
     return SizedBox(
       width: 38.h,
       child: Column(
