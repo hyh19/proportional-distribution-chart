@@ -29,7 +29,14 @@ class ProportionChart extends StatelessWidget {
   Text _buildTitle() {
     return Text(
       chartModel.title,
-      style: theme.textTheme.titleSmall,
+      style: TextStyle(
+        color: Color(0xFF1C1C26),
+        fontSize: 14,
+        fontFamily: 'MiSans VF',
+        fontWeight: FontWeight.w500,
+        height: 0,
+        letterSpacing: 0.30,
+      ),
     );
   }
 
